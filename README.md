@@ -1,4 +1,4 @@
-# RPI-network-interface
+# RPI-wifi-setup
 
 This project seek to develop a way to setup Raspberry PI network interfaces based on availability and interface capabilities. When a Raspberry PI boots this service will do the following:
 
