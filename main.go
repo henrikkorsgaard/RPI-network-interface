@@ -23,6 +23,9 @@ func main() {
 	}
 
 	for _, phyInterface := range phys {
-		fmt.Println(phyInterface)
+		fmt.Printf("%s\n", phyInterface.Name)
+        for _, iftype :=  range phyInterface.SupportedIftypes {
+            fmt.Printf("%+v\n", iftype)
+        }
 	}
 }
