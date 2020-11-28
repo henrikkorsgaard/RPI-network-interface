@@ -1,31 +1,37 @@
 package main
 
 import (
-	"fmt"
+
+    "fmt"
 	"log"
 
-	"github.com/henrikkorsgaard/wifi"
+    "./network"
+
+    //"./configuration"
 )
 
 func main() {
-
-	fmt.Println("hello")
-	c, err := wifi.New()
-	defer c.Close()
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	phys, err := c.PHYs()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _, phyInterface := range phys {
-		fmt.Printf("%s\n", phyInterface.Name)
-        for _, iftype :=  range phyInterface.SupportedIftypes {
-            fmt.Printf("%+v\n", iftype)
-        }
-	}
+    connectedInterfaces, err := network.GetConnectedWifiInterfaces()
+    if err != nil {
+        log.Fatal(err)
+    
 }
+
+
+    
+    fmt.Println(connectedInterfaces)
+}
+
+
+func panicError(err error){
+    if err != nil {
+        log.Panic(err)
+    }
+}
+
+func fatalError(err error){
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+
